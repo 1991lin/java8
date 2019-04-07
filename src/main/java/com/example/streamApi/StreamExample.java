@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -24,7 +26,7 @@ public class StreamExample {
 
 
         List<String> StringList = Lists.newArrayList(
-                "o n e", "t w o", "t h r e e", "f o u r", "f i v e"
+                "o n e", "t w o", "t h r e e", "f o u r l l l", "f i v e"
         );
 
 
@@ -77,6 +79,41 @@ public class StreamExample {
 
         }
         ;
+
+
+        System.out.println("Collection -----------");
+
+//        Set<Integer> integerDouble = integers.stream()
+//                .map(x -> x * 2)
+//                .collect(Collectors.toSet());
+//
+//        integers.stream()
+//                .collect(Collectors.toSet())
+//                .forEach(x -> System.out.println(x*2));
+
+
+
+
+//        System.out.println(integers.stream()
+//                .collect(Collectors.counting()).intValue());
+
+
+        StringList.stream().collect(Collectors.maxBy(
+                (Comparator<String>) (o1, o2) -> {
+                    int o1_lengh = o1.split(" ").length;
+                    int o2_lengh = o2.split(" ").length;
+                    if (o1_lengh > o2_lengh) {
+                        return 1;
+                    } else if (o1_lengh == o2_lengh){
+                        return 0;
+                    }else {
+                        return -1;
+                    }
+                }
+        )).ifPresent(s -> System.out.println(s));
+
+
+
 
     }
 }
