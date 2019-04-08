@@ -20,7 +20,7 @@ public class AgeCollectors implements Collector<Integer, List<Integer>, List<Int
 
 
     public Predicate<Integer> isBiggerThan(Integer y){
-            return integer -> y > 23 ? true : false;
+            return integer -> y > 23;
     }
 
 
@@ -28,9 +28,7 @@ public class AgeCollectors implements Collector<Integer, List<Integer>, List<Int
 
     @Override
     public Supplier<List<Integer>> supplier() {
-        return () -> {
-            return new ArrayList<Integer>();
-        };
+        return () -> new ArrayList<Integer>();
     }
 
     @Override

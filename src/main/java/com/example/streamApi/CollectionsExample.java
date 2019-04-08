@@ -21,9 +21,9 @@ public class CollectionsExample {
                 new Person("李", "Hangzhou", 98));
 
         // (1)找出在城市在上海的
-        for (int i = 0; i < personList.size(); i++) {
-            if ("Shanghai".equalsIgnoreCase(personList.get(i).getCity())) {
-                System.out.println(personList.get(i).getName());
+        for (Person aPersonList : personList) {
+            if ("Shanghai".equalsIgnoreCase(aPersonList.getCity())) {
+                System.out.println(aPersonList.getName());
             }
         }
 
@@ -32,9 +32,7 @@ public class CollectionsExample {
                 .forEach(y -> System.out.println(y.getName()));
 
         // (2)计算在上海的而且年龄大于21岁的,输出他的名字
-        for (int i = 0; i < personList.size(); i++) {
-            Person person = personList.get(i);
-
+        for (Person person : personList) {
             if ("Shanghai".equalsIgnoreCase(person.getCity()) && (21 < person.getAge())) {
                 System.out.println(person.getName());
             }
@@ -61,7 +59,7 @@ public class CollectionsExample {
 
         listMap.forEach((x,y) -> {
             System.out.println(x);
-            y.stream().forEach(z -> System.out.println(z.getName()));
+            y.forEach(z -> System.out.println(z.getName()));
         });
 
 

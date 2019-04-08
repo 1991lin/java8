@@ -22,16 +22,12 @@ public class FunctionInterfaceExample {
 
 
 
-        Consumer<Integer> consumer = (Integer x) -> {
-            System.out.println(x);
-        };
+        Consumer<Integer> consumer = (Integer x) -> System.out.println(x);
         consumer.accept(5);
 
 
 
-        Function<Integer, Integer> function = integer -> {
-            return 100;
-        };
+        Function<Integer, Integer> function = integer -> 100;
 
         System.out.println(function.apply(99));
 
@@ -40,11 +36,7 @@ public class FunctionInterfaceExample {
 
 
         Predicate<Integer> integerPredicate = x -> {
-            if (x > 23) {
-                return false;
-            } else {
-                return true;
-            }
+            return x <= 23;
         };
 
 
